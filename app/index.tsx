@@ -46,7 +46,7 @@ const Index = (): React.JSX.Element => {
         setIsLastPage(true);
       }
     } else {
-      // router.navigate("/homescreen");
+      router.navigate("/homescreen");
     }
   };
 
