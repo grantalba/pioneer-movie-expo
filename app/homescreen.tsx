@@ -78,7 +78,7 @@ export default function Homescreen() {
           marginBottom: SIZES.base,
         }}
         contentContainerStyle={{
-          paddingBottom: SIZES.height * 0.15,
+          paddingBottom: SIZES.height * 0.05,
         }}
         refreshControl={
           <RefreshControl
@@ -87,6 +87,10 @@ export default function Homescreen() {
             tintColor={COLORS.contentPrimary}
           />
         }
+        bounces={true}
+        decelerationRate="normal"
+        scrollEventThrottle={16}
+        showsVerticalScrollIndicator={false}
       >
         <RenderWhen
           condition={topRatedLoading || popularLoading || upcomingLoading}
