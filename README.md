@@ -5,6 +5,9 @@ This is an [Expo](https://expo.dev) project bootstrapped with [`create-expo-app`
 ## 🖼️ Screenshots & Demo
 
 
+![Splash Screen](./assets/images/screenshot_1.png)
+![Home Screen](./assets/images/screenshot_2.png)
+![Details Screen](./assets/images/screenshot_3.png)
 
 ---
 
