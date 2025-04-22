@@ -17,20 +17,30 @@ export default function Homescreen() {
   const [pageNumber, setPageNumber] = useState(1);
   const {
     data: topRatedMovies,
-    error: topRatedMoviesError,
+    error: topRatedMoviesError, // TODO: HandleError
     loading: topRatedLoading,
     fetchApi,
-  } = useApi("top_rated", "GET", pageNumber);
+  } = useApi({
+    endpoint: "top_rated",
+    method: "GET",
+    pageNumber,
+  });
   const {
     data: upcomingMovies,
-    error: upcomingMoviesError,
+    error: upcomingMoviesError, // TODO: HandleError
     loading: upcomingLoading,
-  } = useApi("upcoming", "GET", 1);
+  } = useApi({
+    endpoint: "upcoming",
+    method: "GET",
+  });
   const {
     data: popularMovies,
-    error: popularMoviesError,
+    error: popularMoviesError, // TODO: HandleError
     loading: popularLoading,
-  } = useApi("popular", "GET", 1);
+  } = useApi({
+    endpoint: "popular",
+    method: "GET",
+  });
 
   const handlePageNumber = useCallback(() => {
     setPageNumber(pageNumber + 1);
