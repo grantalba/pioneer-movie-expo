@@ -1,9 +1,15 @@
 import React, { useCallback, useState } from "react";
 import Container from "@/components/Container";
-import { Platform, ScrollView } from "react-native";
+import {
+  ActivityIndicator,
+  Platform,
+  RefreshControl,
+  ScrollView,
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../constants/theme";
 import TopRatedMovie from "@/components/TopRatedMovie";
+import MovieList from "@/components/MovieList";
 import useApi from "@/hooks/useApi";
 import RenderWhen from "@/components/RenderWhen";
 
@@ -15,6 +21,16 @@ export default function Homescreen() {
     loading: topRatedLoading,
     fetchApi,
   } = useApi("top_rated", "GET", pageNumber);
+  const {
+    data: upcomingMovies,
+    error: upcomingMoviesError,
+    loading: upcomingLoading,
+  } = useApi("upcoming", "GET", 1);
+  const {
+    data: popularMovies,
+    error: popularMoviesError,
+    loading: popularLoading,
+  } = useApi("popular", "GET", 1);
 
   const handlePageNumber = useCallback(() => {
     setPageNumber(pageNumber + 1);
@@ -64,12 +80,38 @@ export default function Homescreen() {
         contentContainerStyle={{
           paddingBottom: SIZES.height * 0.15,
         }}
+        refreshControl={
+          <RefreshControl
+            refreshing={popularLoading || topRatedLoading || upcomingLoading}
+            onRefresh={onRefresh}
+            tintColor={COLORS.contentPrimary}
+          />
+        }
       >
+        <RenderWhen
+          condition={topRatedLoading || popularLoading || upcomingLoading}
+        >
+          <ActivityIndicator />
+        </RenderWhen>
         {/* Top rate movies */}
         <TopRatedMovie
           data={topRatedMovies}
           handlePageNumber={handlePageNumber}
           loading={topRatedLoading}
+        />
+
+        {/* Upcoming movies */}
+        <MovieList
+          title="Upcoming"
+          data={upcomingMovies}
+          loading={upcomingLoading}
+        />
+
+        {/* Popular movies */}
+        <MovieList
+          title="Popular"
+          data={popularMovies}
+          loading={popularLoading}
         />
       </ScrollView>
     </Container>

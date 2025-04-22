@@ -19,13 +19,7 @@ export default memo(function TopRatedMovie({
       <Link
         href={{
           // pathname: "/details/[id]",
-          params: {
-            backdrop_path,
-            title,
-            overview,
-            vote_average,
-            id: id?.toString(),
-          },
+          params: { backdrop_path, title, overview, vote_average, id },
         }}
         style={styles.containerCarousel}
         asChild
@@ -43,6 +37,24 @@ export default memo(function TopRatedMovie({
       </Link>
     );
   };
+
+  const styles = StyleSheet.create({
+    headerText: {
+      color: COLORS.contentPrimary,
+      fontWeight: "500",
+      ...FONTS.l1,
+    },
+    slideStyle: {
+      display: "flex",
+      alignItems: "center",
+    },
+    containerCarousel: {
+      flex: 1,
+      height: 400,
+      width: SIZES.width * 0.6,
+      alignSelf: "center",
+    },
+  });
 
   if (!data?.results || loading) {
     return <View />;
@@ -78,22 +90,4 @@ export default memo(function TopRatedMovie({
       </RenderWhen>
     </View>
   );
-});
-
-const styles = StyleSheet.create({
-  headerText: {
-    color: COLORS.contentPrimary,
-    fontWeight: "500",
-    ...FONTS.l1,
-  },
-  slideStyle: {
-    display: "flex",
-    alignItems: "center",
-  },
-  containerCarousel: {
-    flex: 1,
-    height: 400,
-    width: SIZES.width * 0.6,
-    alignSelf: "center",
-  },
 });
