@@ -15,20 +15,24 @@ import {
   Entypo,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { WebView } from "react-native-webview";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import MovieList from "@/components/MovieList";
-import { sampleData } from "@/constants/constants";
 import useApi from "@/hooks/useApi";
+import RenderWhen from "@/components/RenderWhen";
 
 const MovideDetailScreen = () => {
   const params = useLocalSearchParams();
-  const { backdrop_path, title, overview, vote_average, canBeClicked, id } =
-    params;
+  const { backdrop_path, title, overview, vote_average, id } = params;
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const { data: videos } = useApi({
     endpoint: `${id}/videos`,
+    method: "GET",
+  });
+  const { data: similarMovies } = useApi({
+    endpoint: `${id}/similar`,
     method: "GET",
   });
 
@@ -36,6 +40,8 @@ const MovideDetailScreen = () => {
     (vid: any) => vid.type === "Trailer" && vid.site === "YouTube"
   );
 
+  // console.log(JSON.stringify(trailerList, null, 2));
+  // console.log(JSON.stringify(similarMovies, null, 2));
   const handleOnBackPress = () => {
     navigation.goBack();
   };
@@ -62,10 +68,11 @@ const MovideDetailScreen = () => {
       width: 35,
       backgroundColor: COLORS.backgroundTertiary,
       marginHorizontal: SIZES.base,
+      marginBottom: SIZES.margin,
       borderRadius: SIZES.base,
     },
     scrollView: {
-      paddingBottom: SIZES.height * 0.05,
+      paddingBottom: SIZES.height * 0.3,
       marginTop: SIZES.height * 0.225,
       marginHorizontal: SIZES.l3,
       alignItems: "stretch",
@@ -95,7 +102,7 @@ const MovideDetailScreen = () => {
       alignItems: "center",
       width: "100%",
       justifyContent: "center",
-      height: 50,
+      height: 45,
       borderRadius: SIZES.base,
       backgroundColor: COLORS.primary600,
       marginTop: SIZES.margin,
@@ -127,6 +134,12 @@ const MovideDetailScreen = () => {
       flex: 1,
       width: "100%",
       marginTop: SIZES.h1,
+    },
+    webViewVideo: {
+      height: 230,
+      width: "100%",
+      marginBottom: 20,
+      marginTop: 40,
     },
   });
 
@@ -177,6 +190,23 @@ const MovideDetailScreen = () => {
             />
             <Text style={styles.textLabelStyle}>PLAY</Text>
           </TouchableOpacity>
+
+          <RenderWhen
+            condition={Array.isArray(trailerList) && trailerList?.length > 0}
+          >
+            <View style={styles.webViewVideo}>
+              <WebView
+                source={{
+                  uri: `https://www.youtube.com/embed/${trailerList?.[0]?.key}?autoplay=1&mute=1&playsinline=1&controls=1`,
+                }}
+                allowsFullscreenVideo
+                javaScriptEnabled
+                domStorageEnabled
+                mediaPlaybackRequiresUserAction={false}
+              />
+            </View>
+          </RenderWhen>
+
           <Text style={styles.textOverview}>{overview}</Text>
         </View>
         <View style={styles.bottomButtons}>
@@ -209,7 +239,7 @@ const MovideDetailScreen = () => {
         <View style={styles.movieListContainer}>
           <MovieList
             title="More like this"
-            data={sampleData}
+            data={similarMovies}
             canBeClicked={false}
           />
         </View>
