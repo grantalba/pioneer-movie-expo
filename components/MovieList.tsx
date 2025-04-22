@@ -11,6 +11,7 @@ import { SIZES, FONTS, COLORS } from "@/constants/theme";
 import Each from "./Each";
 import { Link } from "expo-router";
 import RenderWhen from "./RenderWhen";
+import { MovieDetailsType } from "@/constants/constants";
 
 const MovieList = ({
   title,
@@ -51,28 +52,31 @@ const MovieList = ({
           <Each
             of={data?.results}
             render={(
-              item: {
-                poster_path: any;
-                backdrop_path: any;
-                title: any;
-                overview: any;
-                vote_average: any;
-              },
+              item: MovieDetailsType,
               index: { toString: () => React.Key | null | undefined }
             ): any => {
-              const { backdrop_path, title, overview, vote_average } = item;
+              const {
+                poster_path,
+                backdrop_path,
+                title,
+                overview,
+                vote_average,
+                id,
+              } = item as MovieDetailsType;
 
               return (
                 <View key={index.toString()}>
                   <RenderWhen condition={canBeClicked}>
                     <Link
                       href={{
-                        // pathname: "/detail",
+                        pathname: "/details/[id]",
                         params: {
+                          poster_path,
                           backdrop_path,
                           title,
                           overview,
                           vote_average,
+                          id,
                         },
                       }}
                       asChild

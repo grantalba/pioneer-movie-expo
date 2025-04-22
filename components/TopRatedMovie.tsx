@@ -4,6 +4,7 @@ import { Link } from "expo-router";
 import { COLORS, SIZES, FONTS } from "@/constants/theme";
 import Carousel from "react-native-reanimated-carousel";
 import RenderWhen from "./RenderWhen";
+import { MovieDetailsType } from "@/constants/constants";
 
 export default memo(function TopRatedMovie({
   data,
@@ -14,11 +15,11 @@ export default memo(function TopRatedMovie({
 
   const renderCarousel = ({ item, index }: any) => {
     const { poster_path, title, backdrop_path, overview, vote_average, id } =
-      item;
+      item as MovieDetailsType;
     return (
       <Link
         href={{
-          // pathname: "/details/[id]",
+          pathname: "/details/[id]",
           params: { backdrop_path, title, overview, vote_average, id },
         }}
         style={styles.containerCarousel}
