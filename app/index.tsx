@@ -104,6 +104,7 @@ const Index = (): React.JSX.Element => {
       marginTop: SIZES.radius,
       textAlign: "center",
       color: COLORS.primary100,
+      marginHorizontal: SIZES.margin,
     },
     textButton: {
       marginHorizontal: SIZES.padding,
