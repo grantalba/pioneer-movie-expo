@@ -5,6 +5,15 @@ export type OnboardingScreensType = {
   desc: string;
 };
 
+export type MovieDetailsType = {
+  poster_path: string;
+  backdrop_path: string;
+  title: string;
+  overview: string;
+  vote_average: string;
+  id: number;
+};
+
 export const onboarding_screens: OnboardingScreensType[] = [
   {
     id: 1,
