@@ -5,6 +5,7 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
+  Platform,
 } from "react-native";
 import React from "react";
 import { useLocalSearchParams, useNavigation } from "expo-router";
@@ -72,7 +73,8 @@ const MovideDetailScreen = () => {
       borderRadius: SIZES.base,
     },
     scrollView: {
-      paddingBottom: SIZES.height * 0.3,
+      paddingBottom:
+        Platform.OS === "ios" ? SIZES.height * 0.15 : SIZES.height * 0.35,
       marginTop: SIZES.height * 0.225,
       marginHorizontal: SIZES.l3,
       alignItems: "stretch",
