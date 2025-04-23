@@ -51,11 +51,11 @@ const useApi = ({ endpoint = '', method = 'GET', pageNumber = null }: RestApiTyp
       setError(err);
       setLoading(false);
     }
-  }, [pageNumber, endpoint, data]);
+  }, [pageNumber, endpoint, method]);
 
   useEffect(() => {
     fetchApi();
-  }, [pageNumber, endpoint, method, fetchApi]);
+  }, [pageNumber, endpoint, method]);
 
   return { data, error, loading, fetchApi };
 };
