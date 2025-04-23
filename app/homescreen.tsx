@@ -1,12 +1,14 @@
-import React, { useCallback, useState } from 'react';
-import Container from '@/components/Container';
-import { ActivityIndicator, Platform, RefreshControl, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { COLORS, SIZES } from '../constants/theme';
-import TopRatedMovie from '@/components/TopRatedMovie';
+import React, { useCallback, useState } from 'react';
+import { ActivityIndicator, Platform, RefreshControl, ScrollView } from 'react-native';
+
+import Container from '@/components/Container';
 import MovieList from '@/components/MovieList';
-import useApi from '@/hooks/useApi';
 import RenderWhen from '@/components/RenderWhen';
+import TopRatedMovie from '@/components/TopRatedMovie';
+import useApi from '@/hooks/useApi';
+
+import { COLORS, SIZES } from '../constants/theme';
 
 export default function Homescreen() {
   const [pageNumber, setPageNumber] = useState(1);

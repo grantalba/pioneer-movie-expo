@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import React, { memo } from 'react';
-import { SIZES, FONTS, COLORS } from '@/constants/theme';
-import Each from './Each';
 import { Link } from 'expo-router';
-import RenderWhen from './RenderWhen';
+import React, { memo } from 'react';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
+
 import { MovieDetailsType } from '@/constants/constants';
+import { SIZES, FONTS, COLORS } from '@/constants/theme';
+
+import Each from './Each';
+import RenderWhen from './RenderWhen';
 
 type MovieListType = {
   title: string;

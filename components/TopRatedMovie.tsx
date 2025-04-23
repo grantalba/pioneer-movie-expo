@@ -1,10 +1,12 @@
+import { Link } from 'expo-router';
 import React, { memo } from 'react';
 import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
-import { Link } from 'expo-router';
-import { COLORS, SIZES, FONTS } from '@/constants/theme';
 import Carousel from 'react-native-reanimated-carousel';
-import RenderWhen from './RenderWhen';
+
 import { MovieDetailsType } from '@/constants/constants';
+import { COLORS, SIZES, FONTS } from '@/constants/theme';
+
+import RenderWhen from './RenderWhen';
 
 export default memo(function TopRatedMovie({ data, handlePageNumber, loading = false }: any) {
   const lastIndex = data?.results?.length;

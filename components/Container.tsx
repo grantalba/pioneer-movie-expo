@@ -1,12 +1,13 @@
+import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 import React, { PropsWithChildren } from 'react';
 import { View, StyleSheet, ColorValue, Platform } from 'react-native';
 import { Appbar } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import RenderWhen from './RenderWhen';
 import { COLORS, FONTS, SIZES } from '../constants/theme';
-import { MaterialIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import { LinearGradient } from 'expo-linear-gradient';
 
 interface Header {
   pageTitle?: any;

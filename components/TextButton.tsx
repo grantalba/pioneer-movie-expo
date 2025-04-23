@@ -1,5 +1,6 @@
-import { Text, TouchableOpacity, StyleSheet, GestureResponderEvent } from 'react-native';
 import React from 'react';
+import { Text, TouchableOpacity, StyleSheet, GestureResponderEvent } from 'react-native';
+
 import { SIZES, FONTS, COLORS } from '@/constants/theme';
 
 type TextButtonProps = {

@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
+import { useState, useCallback, useEffect } from 'react';
 
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 

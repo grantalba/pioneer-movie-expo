@@ -1,11 +1,12 @@
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Text, View, FlatList, Image, StyleSheet, Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
-import { SIZES, COLORS, FONTS } from '@/constants/theme';
-import { onboarding_screens, OnboardingScreensType } from '@/constants/constants';
-import TextButton from '@/components/TextButton';
+
 import Container from '@/components/Container';
+import TextButton from '@/components/TextButton';
+import { onboarding_screens, OnboardingScreensType } from '@/constants/constants';
+import { SIZES, COLORS, FONTS } from '@/constants/theme';
 
 const Index = (): React.JSX.Element => {
   const insets = useSafeAreaInsets();

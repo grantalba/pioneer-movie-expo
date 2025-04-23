@@ -1,3 +1,7 @@
+import { MaterialIcons, Ionicons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useLocalSearchParams, useNavigation } from 'expo-router';
+import React from 'react';
 import {
   View,
   Text,
@@ -7,16 +11,13 @@ import {
   StyleSheet,
   Platform,
 } from 'react-native';
-import React from 'react';
-import { useLocalSearchParams, useNavigation } from 'expo-router';
-import { COLORS, SIZES, FONTS } from '@/constants/theme';
-import { MaterialIcons, Ionicons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
-import { WebView } from 'react-native-webview';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
+import { WebView } from 'react-native-webview';
+
 import MovieList from '@/components/MovieList';
-import useApi from '@/hooks/useApi';
 import RenderWhen from '@/components/RenderWhen';
+import { COLORS, SIZES, FONTS } from '@/constants/theme';
+import useApi from '@/hooks/useApi';
 
 const MovideDetailScreen = () => {
   const params = useLocalSearchParams();
