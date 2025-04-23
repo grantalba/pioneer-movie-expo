@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import axios from 'axios';
 
 const BASE_URL = 'https://api.themoviedb.org/3/movie/';
@@ -51,11 +51,11 @@ const useApi = ({ endpoint = '', method = 'GET', pageNumber = null }: RestApiTyp
       setError(err);
       setLoading(false);
     }
-  }, [pageNumber, endpoint, method]);
+  }, [pageNumber, endpoint, data]);
 
   useEffect(() => {
     fetchApi();
-  }, [pageNumber, endpoint, method]);
+  }, [pageNumber, endpoint, method, fetchApi]);
 
   return { data, error, loading, fetchApi };
 };

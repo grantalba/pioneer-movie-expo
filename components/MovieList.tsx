@@ -6,7 +6,14 @@ import { Link } from 'expo-router';
 import RenderWhen from './RenderWhen';
 import { MovieDetailsType } from '@/constants/constants';
 
-const MovieList = ({ title, data, canBeClicked = true, loading = false }: any) => {
+type MovieListType = {
+  title: string;
+  data: any;
+  canBeClicked?: boolean;
+  loading: boolean;
+};
+
+const MovieList = ({ title, data, canBeClicked = true, loading = false }: MovieListType) => {
   const styles = StyleSheet.create({
     content: SIZES.content,
     headerText: {
@@ -24,7 +31,7 @@ const MovieList = ({ title, data, canBeClicked = true, loading = false }: any) =
   });
 
   if (!data?.results || loading) {
-    <View />;
+    return <View />;
   }
 
   return (

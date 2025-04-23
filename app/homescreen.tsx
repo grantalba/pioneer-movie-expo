@@ -12,7 +12,7 @@ export default function Homescreen() {
   const [pageNumber, setPageNumber] = useState(1);
   const {
     data: topRatedMovies,
-    error: topRatedMoviesError, // TODO: HandleError
+    // error: topRatedMoviesError, // TODO: HandleError
     loading: topRatedLoading,
     fetchApi,
   } = useApi({
@@ -22,7 +22,7 @@ export default function Homescreen() {
   });
   const {
     data: upcomingMovies,
-    error: upcomingMoviesError, // TODO: HandleError
+    // error: upcomingMoviesError, // TODO: HandleError
     loading: upcomingLoading,
   } = useApi({
     endpoint: 'upcoming',
@@ -30,7 +30,7 @@ export default function Homescreen() {
   });
   const {
     data: popularMovies,
-    error: popularMoviesError, // TODO: HandleError
+    // error: popularMoviesError, // TODO: HandleError
     loading: popularLoading,
   } = useApi({
     endpoint: 'popular',
@@ -50,7 +50,7 @@ export default function Homescreen() {
 
   const onRefresh = React.useCallback(() => {
     fetchApi();
-  }, []);
+  }, [fetchApi]);
 
   return (
     <Container
