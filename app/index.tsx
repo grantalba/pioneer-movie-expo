@@ -1,21 +1,11 @@
-import React from "react";
-import {
-  Text,
-  View,
-  FlatList,
-  Image,
-  StyleSheet,
-  Platform,
-} from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useRouter } from "expo-router";
-import { SIZES, COLORS, FONTS } from "@/constants/theme";
-import {
-  onboarding_screens,
-  OnboardingScreensType,
-} from "@/constants/constants";
-import TextButton from "@/components/TextButton";
-import Container from "@/components/Container";
+import React from 'react';
+import { Text, View, FlatList, Image, StyleSheet, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
+import { SIZES, COLORS, FONTS } from '@/constants/theme';
+import { onboarding_screens, OnboardingScreensType } from '@/constants/constants';
+import TextButton from '@/components/TextButton';
+import Container from '@/components/Container';
 
 const Index = (): React.JSX.Element => {
   const insets = useSafeAreaInsets();
@@ -46,27 +36,19 @@ const Index = (): React.JSX.Element => {
         setIsLastPage(true);
       }
     } else {
-      router.navigate("/homescreen");
+      router.navigate('/homescreen');
     }
   };
 
   const renderTopFlatListItem = ({ item }: { item: OnboardingScreensType }) => {
     return (
       <View style={styles.topFlatListView}>
-        <Image
-          source={item.image}
-          resizeMode="contain"
-          style={styles.imageContainer}
-        />
+        <Image source={item.image} resizeMode="contain" style={styles.imageContainer} />
       </View>
     );
   };
 
-  const renderBottomFlatListItem = ({
-    item,
-  }: {
-    item: OnboardingScreensType;
-  }) => {
+  const renderBottomFlatListItem = ({ item }: { item: OnboardingScreensType }) => {
     return (
       <View style={styles.topFlatListView}>
         <Text style={styles.titleStyle}>{item.title}</Text>
@@ -78,31 +60,31 @@ const Index = (): React.JSX.Element => {
   const styles = StyleSheet.create({
     topContainer: {
       flex: 2,
-      paddingTop: Platform.OS === "android" ? insets.top : 0,
+      paddingTop: Platform.OS === 'android' ? insets.top : 0,
     },
     topFlatListView: {
       width: SIZES.width,
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     imageContainer: {
       width: SIZES.width * 0.8,
       height: SIZES.height * 0.5,
-      alignItems: "center",
-      justifyContent: "center",
-      alignSelf: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignSelf: 'center',
     },
     titleStyle: {
       ...FONTS.h1,
-      fontWeight: "600",
-      textAlign: "center",
+      fontWeight: '600',
+      textAlign: 'center',
       color: COLORS.primary100,
     },
     descStyle: {
       ...FONTS.l1,
-      fontWeight: "300",
+      fontWeight: '300',
       marginTop: SIZES.radius,
-      textAlign: "center",
+      textAlign: 'center',
       color: COLORS.primary100,
       marginHorizontal: SIZES.margin,
     },
@@ -111,15 +93,12 @@ const Index = (): React.JSX.Element => {
     },
     bottomContainer: {
       flex: 1,
-      justifyContent: "space-around",
+      justifyContent: 'space-around',
     },
   });
 
   return (
-    <Container
-      backgroundColor={COLORS.backgroundTertiary}
-      hasLinearGradient={false}
-    >
+    <Container backgroundColor={COLORS.backgroundTertiary} hasLinearGradient={false}>
       {/* Image Flatlist */}
       <View style={styles.topContainer}>
         <FlatList
@@ -154,7 +133,7 @@ const Index = (): React.JSX.Element => {
         />
 
         <TextButton
-          label={isLastPage ? "Let's Go" : "Next"}
+          label={isLastPage ? "Let's Go" : 'Next'}
           contentContainerStyle={styles.textButton}
           onPress={handlePressButton}
         />

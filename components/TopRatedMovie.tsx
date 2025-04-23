@@ -1,16 +1,12 @@
-import React, { memo } from "react";
-import { View, StyleSheet, Image, TouchableOpacity, Text } from "react-native";
-import { Link } from "expo-router";
-import { COLORS, SIZES, FONTS } from "@/constants/theme";
-import Carousel from "react-native-reanimated-carousel";
-import RenderWhen from "./RenderWhen";
-import { MovieDetailsType } from "@/constants/constants";
+import React, { memo } from 'react';
+import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
+import { Link } from 'expo-router';
+import { COLORS, SIZES, FONTS } from '@/constants/theme';
+import Carousel from 'react-native-reanimated-carousel';
+import RenderWhen from './RenderWhen';
+import { MovieDetailsType } from '@/constants/constants';
 
-export default memo(function TopRatedMovie({
-  data,
-  handlePageNumber,
-  loading = false,
-}: any) {
+export default memo(function TopRatedMovie({ data, handlePageNumber, loading = false }: any) {
   const lastIndex = data?.results?.length;
 
   const renderCarousel = ({ item, index }: any) => {
@@ -19,7 +15,7 @@ export default memo(function TopRatedMovie({
     return (
       <Link
         href={{
-          pathname: "/details/[id]",
+          pathname: '/details/[id]',
           params: { backdrop_path, title, overview, vote_average, id },
         }}
         style={styles.containerCarousel}
@@ -42,18 +38,18 @@ export default memo(function TopRatedMovie({
   const styles = StyleSheet.create({
     headerText: {
       color: COLORS.contentPrimary,
-      fontWeight: "500",
+      fontWeight: '500',
       ...FONTS.l1,
     },
     slideStyle: {
-      display: "flex",
-      alignItems: "center",
+      display: 'flex',
+      alignItems: 'center',
     },
     containerCarousel: {
       flex: 1,
       height: 400,
       width: SIZES.width * 0.6,
-      alignSelf: "center",
+      alignSelf: 'center',
     },
   });
 

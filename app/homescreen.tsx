@@ -1,45 +1,40 @@
-import React, { useCallback, useState } from "react";
-import Container from "@/components/Container";
-import {
-  ActivityIndicator,
-  Platform,
-  RefreshControl,
-  ScrollView,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { COLORS, SIZES } from "../constants/theme";
-import TopRatedMovie from "@/components/TopRatedMovie";
-import MovieList from "@/components/MovieList";
-import useApi from "@/hooks/useApi";
-import RenderWhen from "@/components/RenderWhen";
+import React, { useCallback, useState } from 'react';
+import Container from '@/components/Container';
+import { ActivityIndicator, Platform, RefreshControl, ScrollView } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { COLORS, SIZES } from '../constants/theme';
+import TopRatedMovie from '@/components/TopRatedMovie';
+import MovieList from '@/components/MovieList';
+import useApi from '@/hooks/useApi';
+import RenderWhen from '@/components/RenderWhen';
 
 export default function Homescreen() {
   const [pageNumber, setPageNumber] = useState(1);
   const {
     data: topRatedMovies,
-    error: topRatedMoviesError, // TODO: HandleError
+    // error: topRatedMoviesError, // TODO: HandleError
     loading: topRatedLoading,
     fetchApi,
   } = useApi({
-    endpoint: "top_rated",
-    method: "GET",
+    endpoint: 'top_rated',
+    method: 'GET',
     pageNumber,
   });
   const {
     data: upcomingMovies,
-    error: upcomingMoviesError, // TODO: HandleError
+    // error: upcomingMoviesError, // TODO: HandleError
     loading: upcomingLoading,
   } = useApi({
-    endpoint: "upcoming",
-    method: "GET",
+    endpoint: 'upcoming',
+    method: 'GET',
   });
   const {
     data: popularMovies,
-    error: popularMoviesError, // TODO: HandleError
+    // error: popularMoviesError, // TODO: HandleError
     loading: popularLoading,
   } = useApi({
-    endpoint: "popular",
-    method: "GET",
+    endpoint: 'popular',
+    method: 'GET',
   });
 
   const handlePageNumber = useCallback(() => {
@@ -55,18 +50,18 @@ export default function Homescreen() {
 
   const onRefresh = React.useCallback(() => {
     fetchApi();
-  }, []);
+  }, [fetchApi]);
 
   return (
     <Container
       hasLinearGradient={false}
       header={{
         shouldDisplayBack: false,
-        pageTitle: "Movies",
+        pageTitle: 'Movies',
         left: (
           <Ionicons
             name="menu"
-            size={Platform.OS === "ios" ? 30 : 40}
+            size={Platform.OS === 'ios' ? 30 : 40}
             color={COLORS.primary500}
             onPress={handleLeftIconPress}
           />
@@ -74,7 +69,7 @@ export default function Homescreen() {
         right: (
           <Ionicons
             name="person-circle"
-            size={Platform.OS === "ios" ? 30 : 40}
+            size={Platform.OS === 'ios' ? 30 : 40}
             color={COLORS.primary500}
             onPress={handleRightIconPress}
           />
@@ -102,9 +97,7 @@ export default function Homescreen() {
         scrollEventThrottle={16}
         showsVerticalScrollIndicator={false}
       >
-        <RenderWhen
-          condition={topRatedLoading || popularLoading || upcomingLoading}
-        >
+        <RenderWhen condition={topRatedLoading || popularLoading || upcomingLoading}>
           <ActivityIndicator />
         </RenderWhen>
         {/* Top rate movies */}
@@ -115,18 +108,10 @@ export default function Homescreen() {
         />
 
         {/* Upcoming movies */}
-        <MovieList
-          title="Upcoming"
-          data={upcomingMovies}
-          loading={upcomingLoading}
-        />
+        <MovieList title="Upcoming" data={upcomingMovies} loading={upcomingLoading} />
 
         {/* Popular movies */}
-        <MovieList
-          title="Popular"
-          data={popularMovies}
-          loading={popularLoading}
-        />
+        <MovieList title="Popular" data={popularMovies} loading={popularLoading} />
       </ScrollView>
     </Container>
   );
