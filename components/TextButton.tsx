@@ -1,11 +1,6 @@
-import {
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  GestureResponderEvent,
-} from "react-native";
-import React from "react";
-import { SIZES, FONTS, COLORS } from "@/constants/theme";
+import { Text, TouchableOpacity, StyleSheet, GestureResponderEvent } from 'react-native';
+import React from 'react';
+import { SIZES, FONTS, COLORS } from '@/constants/theme';
 
 type TextButtonProps = {
   label: string;
@@ -16,7 +11,7 @@ type TextButtonProps = {
 };
 
 const TextButton = ({
-  label = "",
+  label = '',
   labelStyle,
   contentContainerStyle,
   onPress,
@@ -24,8 +19,8 @@ const TextButton = ({
 }: TextButtonProps): React.JSX.Element => {
   const styles = StyleSheet.create({
     touchableOpacityStyle: {
-      alignItems: "center",
-      justifyContent: "center",
+      alignItems: 'center',
+      justifyContent: 'center',
       height: 55,
       borderRadius: SIZES.buttonBorderRadius,
       backgroundColor: disabled ? COLORS.gray200 : COLORS.primary500,
@@ -39,11 +34,7 @@ const TextButton = ({
   });
 
   return (
-    <TouchableOpacity
-      disabled={disabled}
-      style={styles.touchableOpacityStyle}
-      onPress={onPress}
-    >
+    <TouchableOpacity disabled={disabled} style={styles.touchableOpacityStyle} onPress={onPress}>
       <Text style={styles.textLabelStyle}>{label}</Text>
     </TouchableOpacity>
   );

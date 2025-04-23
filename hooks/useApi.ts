@@ -1,7 +1,7 @@
-import React, { useState, useCallback, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useCallback, useEffect } from 'react';
+import axios from 'axios';
 
-const BASE_URL = "https://api.themoviedb.org/3/movie/";
+const BASE_URL = 'https://api.themoviedb.org/3/movie/';
 
 const AUTH_KEY = process.env.EXPO_PUBLIC_TMDB_AUTH_KEY;
 
@@ -11,11 +11,7 @@ type RestApiType = {
   pageNumber?: number | null;
 };
 
-const useApi = ({
-  endpoint = "",
-  method = "GET",
-  pageNumber = null,
-}: RestApiType) => {
+const useApi = ({ endpoint = '', method = 'GET', pageNumber = null }: RestApiType) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -25,14 +21,14 @@ const useApi = ({
       if (pageNumber === 1) setLoading(true);
 
       const options = {
-        method: "GET",
+        method: 'GET',
         url: `${BASE_URL}${endpoint}`,
         params: {
-          language: "en-US",
+          language: 'en-US',
           ...(pageNumber ? { page: pageNumber } : {}),
         },
         headers: {
-          accept: "application/json",
+          accept: 'application/json',
           Authorization: `Bearer ${AUTH_KEY}`,
         },
       };
