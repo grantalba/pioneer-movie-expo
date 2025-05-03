@@ -1,6 +1,9 @@
 import React from 'react';
 
 const Each = ({ render, of = [] }: any) => {
+  if (!Array.isArray(of)) {
+    return null;
+  }
   // Render each element using the 'render' prop
   return (
     <>

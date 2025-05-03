@@ -32,13 +32,13 @@ const MovieList = ({ title, data, canBeClicked = true, loading = false }: MovieL
     },
   });
 
-  if (!data?.results || loading) {
+  if (!data || loading) {
     return <View />;
   }
 
   return (
     <View style={styles.content}>
-      <RenderWhen condition={data?.results && !loading}>
+      <RenderWhen condition={data && !loading}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <Text style={styles.headerText}>{title}</Text>
           <TouchableOpacity>
@@ -47,7 +47,7 @@ const MovieList = ({ title, data, canBeClicked = true, loading = false }: MovieL
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <Each
-            of={data?.results}
+            of={data || []}
             render={(
               item: MovieDetailsType,
               index: { toString: () => React.Key | null | undefined }

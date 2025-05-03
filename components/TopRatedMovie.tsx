@@ -3,17 +3,30 @@ import React, { memo } from 'react';
 import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 
+import { MoviePage } from '@/api/movies';
 import { MovieDetailsType } from '@/constants/constants';
 import { COLORS, SIZES, FONTS } from '@/constants/theme';
 
 import RenderWhen from './RenderWhen';
 
-export default memo(function TopRatedMovie({ data, handlePageNumber, loading = false }: any) {
-  const lastIndex = data?.results?.length;
+type TopRatedMovieProps = {
+  data: MoviePage[];
+  loading: boolean;
+  fetchNextPage: () => void;
+  hasNextPage: boolean;
+};
 
-  const renderCarousel = ({ item, index }: any) => {
-    const { poster_path, title, backdrop_path, overview, vote_average, id } =
-      item as MovieDetailsType;
+export default memo(function TopRatedMovie({
+  data,
+  loading = false,
+  fetchNextPage,
+  hasNextPage,
+}: TopRatedMovieProps) {
+  const movies: MovieDetailsType[] = data.flatMap((page) => page.results ?? []);
+  const lastIndex = movies.length - 1;
+
+  const renderCarousel = ({ item, index }: { item: MovieDetailsType; index: number }) => {
+    const { poster_path, title, backdrop_path, overview, vote_average, id } = item;
     return (
       <Link
         href={{
@@ -55,13 +68,13 @@ export default memo(function TopRatedMovie({ data, handlePageNumber, loading = f
     },
   });
 
-  if (!data?.results || loading) {
+  if (!movies.length || loading) {
     return <View />;
   }
 
   return (
     <View style={{ ...SIZES.content }}>
-      <RenderWhen condition={data?.results && !loading}>
+      <RenderWhen condition={!loading}>
         <Text style={styles.headerText}>Top Rated Movie</Text>
         <View
           style={{
@@ -69,7 +82,7 @@ export default memo(function TopRatedMovie({ data, handlePageNumber, loading = f
           }}
         >
           <Carousel
-            data={data?.results}
+            data={movies}
             renderItem={renderCarousel}
             width={SIZES.width}
             height={SIZES.height * 0.35}
@@ -80,8 +93,8 @@ export default memo(function TopRatedMovie({ data, handlePageNumber, loading = f
               parallaxScrollingOffset: 200,
             }}
             onScrollEnd={(index) => {
-              if (lastIndex === index + 1) {
-                handlePageNumber();
+              if (index === lastIndex && hasNextPage) {
+                fetchNextPage();
               }
             }}
           />

@@ -1,4 +1,5 @@
 import { MaterialIcons, Ionicons, Entypo, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useQuery } from '@tanstack/react-query';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useLocalSearchParams, useNavigation } from 'expo-router';
 import React from 'react';
@@ -14,31 +15,29 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 
+import { fetchMovieTrailer } from '@/api/movies';
 import MovieList from '@/components/MovieList';
 import RenderWhen from '@/components/RenderWhen';
 import { COLORS, SIZES, FONTS } from '@/constants/theme';
-import useApi from '@/hooks/useApi';
+import useQueryMovies from '@/hooks/useQueryMovies';
 
 const MovideDetailScreen = () => {
   const params = useLocalSearchParams();
   const { backdrop_path, title, overview, vote_average, id } = params;
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
-  const { data: videos } = useApi({
-    endpoint: `${id}/videos`,
-    method: 'GET',
+  const { data: videos } = useQuery({
+    queryKey: ['videos', 'trailer', id],
+    queryFn: () => fetchMovieTrailer(id as string),
   });
-  const { data: similarMovies } = useApi({
+  const { data: similarMovies, isLoading } = useQueryMovies({
     endpoint: `${id}/similar`,
-    method: 'GET',
   });
 
   const trailerList = videos?.results?.filter(
     (vid: any) => vid.type === 'Trailer' && vid.site === 'YouTube'
   );
 
-  // console.log(JSON.stringify(trailerList, null, 2));
-  // console.log(JSON.stringify(similarMovies, null, 2));
   const handleOnBackPress = () => {
     navigation.goBack();
   };
@@ -222,7 +221,12 @@ const MovideDetailScreen = () => {
         </View>
 
         <View style={styles.movieListContainer}>
-          <MovieList title="More like this" data={similarMovies} canBeClicked={false} />
+          <MovieList
+            title="More like this"
+            data={similarMovies?.pages.flatMap((page) => page.results) ?? []}
+            canBeClicked={false}
+            loading={isLoading}
+          />
         </View>
       </ScrollView>
     </View>

@@ -1,47 +1,35 @@
 import { Ionicons } from '@expo/vector-icons';
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { ActivityIndicator, Platform, RefreshControl, ScrollView } from 'react-native';
 
 import Container from '@/components/Container';
 import MovieList from '@/components/MovieList';
 import RenderWhen from '@/components/RenderWhen';
 import TopRatedMovie from '@/components/TopRatedMovie';
-import useApi from '@/hooks/useApi';
+import useQueryMovies from '@/hooks/useQueryMovies';
 
 import { COLORS, SIZES } from '../constants/theme';
 
 export default function Homescreen() {
-  const [pageNumber, setPageNumber] = useState(1);
   const {
     data: topRatedMovies,
+    fetchNextPage: fetchTopRatedNextPage,
+    hasNextPage: hasMoreTopRated,
     // error: topRatedMoviesError, // TODO: HandleError
-    loading: topRatedLoading,
-    fetchApi,
-  } = useApi({
-    endpoint: 'top_rated',
-    method: 'GET',
-    pageNumber,
-  });
+    isLoading: topRatedLoading,
+    refetch: fetchApi,
+  } = useQueryMovies({ endpoint: 'top_rated' });
+
   const {
     data: upcomingMovies,
     // error: upcomingMoviesError, // TODO: HandleError
-    loading: upcomingLoading,
-  } = useApi({
-    endpoint: 'upcoming',
-    method: 'GET',
-  });
+    isLoading: upcomingLoading,
+  } = useQueryMovies({ endpoint: 'upcoming' });
   const {
     data: popularMovies,
     // error: popularMoviesError, // TODO: HandleError
-    loading: popularLoading,
-  } = useApi({
-    endpoint: 'popular',
-    method: 'GET',
-  });
-
-  const handlePageNumber = useCallback(() => {
-    setPageNumber(pageNumber + 1);
-  }, [pageNumber]);
+    isLoading: popularLoading,
+  } = useQueryMovies({ endpoint: 'popular' });
 
   const handleLeftIconPress = () => {
     // TODO: handleLeftIconPress
@@ -104,16 +92,25 @@ export default function Homescreen() {
         </RenderWhen>
         {/* Top rate movies */}
         <TopRatedMovie
-          data={topRatedMovies}
-          handlePageNumber={handlePageNumber}
+          data={topRatedMovies?.pages ?? []}
           loading={topRatedLoading}
+          fetchNextPage={fetchTopRatedNextPage}
+          hasNextPage={hasMoreTopRated}
         />
 
         {/* Upcoming movies */}
-        <MovieList title="Upcoming" data={upcomingMovies} loading={upcomingLoading} />
+        <MovieList
+          title="Upcoming"
+          data={upcomingMovies?.pages?.flatMap((page) => page.results) ?? []}
+          loading={upcomingLoading}
+        />
 
         {/* Popular movies */}
-        <MovieList title="Popular" data={popularMovies} loading={popularLoading} />
+        <MovieList
+          title="Popular"
+          data={popularMovies?.pages?.flatMap((page) => page.results) ?? []}
+          loading={popularLoading}
+        />
       </ScrollView>
     </Container>
   );
