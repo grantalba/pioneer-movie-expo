@@ -137,6 +137,7 @@ const Index = (): React.JSX.Element => {
           label={isLastPage ? "Let's Go" : 'Next'}
           contentContainerStyle={styles.textButton}
           onPress={handlePressButton}
+          accessibilityLabel="onboardingTextButton"
         />
       </View>
     </Container>
