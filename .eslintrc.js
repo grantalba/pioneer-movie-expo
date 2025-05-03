@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['expo', 'prettier'],
+  extends: ['expo', 'prettier', 'plugin:@tanstack/query/recommended'],
   overrides: [
     {
       // Test files only
@@ -10,6 +10,7 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'no-unused-vars': ['error'],
     semi: ['error', 'always'],
     'import/order': [
       'error',
