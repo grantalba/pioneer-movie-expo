@@ -1,0 +1,472 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index (Onboarding) Screen should match the snapsho 1`] = `
+<View
+  style={
+    {
+      "alignItems": "stretch",
+      "backgroundColor": "#212122",
+      "flex": 1,
+      "flexDirection": "column",
+      "paddingBottom": 20,
+      "paddingHorizontal": 0,
+      "paddingTop": 0,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "flex": 2,
+        "paddingTop": 0,
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        [
+          {
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.",
+            "id": 1,
+            "image": {
+              "testUri": "../../../assets/images/splash_1.png",
+            },
+            "title": "Watch Movies",
+          },
+          {
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.",
+            "id": 2,
+            "image": {
+              "testUri": "../../../assets/images/splash_2.png",
+            },
+            "title": "Search Movies",
+          },
+          {
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.",
+            "id": 3,
+            "image": {
+              "testUri": "../../../assets/images/splash_3.png",
+            },
+            "title": "Download Movies",
+          },
+        ]
+      }
+      decelerationRate="fast"
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      pagingEnabled={true}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEnabled={false}
+      scrollEventThrottle={0.0001}
+      showsHorizontalScrollIndicator={false}
+      snapToAlignment="center"
+      snapToInterval={750}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={
+            [
+              {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "width": 750,
+              }
+            }
+          >
+            <Image
+              resizeMode="contain"
+              source={
+                {
+                  "testUri": "../../../assets/images/splash_1.png",
+                }
+              }
+              style={
+                {
+                  "alignItems": "center",
+                  "alignSelf": "center",
+                  "height": 667,
+                  "justifyContent": "center",
+                  "width": 600,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={
+            [
+              {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "width": 750,
+              }
+            }
+          >
+            <Image
+              resizeMode="contain"
+              source={
+                {
+                  "testUri": "../../../assets/images/splash_2.png",
+                }
+              }
+              style={
+                {
+                  "alignItems": "center",
+                  "alignSelf": "center",
+                  "height": 667,
+                  "justifyContent": "center",
+                  "width": 600,
+                }
+              }
+            />
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={
+            [
+              {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "width": 750,
+              }
+            }
+          >
+            <Image
+              resizeMode="contain"
+              source={
+                {
+                  "testUri": "../../../assets/images/splash_3.png",
+                }
+              }
+              style={
+                {
+                  "alignItems": "center",
+                  "alignSelf": "center",
+                  "height": 667,
+                  "justifyContent": "center",
+                  "width": 600,
+                }
+              }
+            />
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      {
+        "flex": 1,
+        "justifyContent": "space-around",
+      }
+    }
+  >
+    <RCTScrollView
+      data={
+        [
+          {
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.",
+            "id": 1,
+            "image": {
+              "testUri": "../../../assets/images/splash_1.png",
+            },
+            "title": "Watch Movies",
+          },
+          {
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.",
+            "id": 2,
+            "image": {
+              "testUri": "../../../assets/images/splash_2.png",
+            },
+            "title": "Search Movies",
+          },
+          {
+            "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.",
+            "id": 3,
+            "image": {
+              "testUri": "../../../assets/images/splash_3.png",
+            },
+            "title": "Download Movies",
+          },
+        ]
+      }
+      decelerationRate="fast"
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={true}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      pagingEnabled={true}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEnabled={false}
+      scrollEventThrottle={0.0001}
+      showsHorizontalScrollIndicator={false}
+      snapToAlignment="center"
+      snapToInterval={750}
+      stickyHeaderIndices={[]}
+      viewabilityConfigCallbackPairs={[]}
+    >
+      <View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={
+            [
+              {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "width": 750,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#D4D4F6",
+                  "fontSize": 32,
+                  "fontWeight": "600",
+                  "lineHeight": 40,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Watch Movies
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#D4D4F6",
+                  "fontSize": 18,
+                  "fontWeight": "300",
+                  "lineHeight": 24,
+                  "marginHorizontal": 20,
+                  "marginTop": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.
+            </Text>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={
+            [
+              {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "width": 750,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#D4D4F6",
+                  "fontSize": 32,
+                  "fontWeight": "600",
+                  "lineHeight": 40,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Search Movies
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#D4D4F6",
+                  "fontSize": 18,
+                  "fontWeight": "300",
+                  "lineHeight": 24,
+                  "marginHorizontal": 20,
+                  "marginTop": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.
+            </Text>
+          </View>
+        </View>
+        <View
+          onFocusCapture={[Function]}
+          onLayout={[Function]}
+          style={
+            [
+              {
+                "flexDirection": "row",
+              },
+              null,
+            ]
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "justifyContent": "center",
+                "width": 750,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "color": "#D4D4F6",
+                  "fontSize": 32,
+                  "fontWeight": "600",
+                  "lineHeight": 40,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Download Movies
+            </Text>
+            <Text
+              style={
+                {
+                  "color": "#D4D4F6",
+                  "fontSize": 18,
+                  "fontWeight": "300",
+                  "lineHeight": 24,
+                  "marginHorizontal": 20,
+                  "marginTop": 12,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dapibus varius nulla, quis dictum augue.
+            </Text>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+    <View
+      accessibilityLabel="onboardingTextButton"
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "center",
+          "backgroundColor": "#706FD3",
+          "borderRadius": 22,
+          "height": 55,
+          "justifyContent": "center",
+          "marginHorizontal": 24,
+          "opacity": 1,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#EEEEEE",
+            "fontSize": 18,
+            "lineHeight": 24,
+          }
+        }
+      >
+        Next
+      </Text>
+    </View>
+  </View>
+</View>
+`;

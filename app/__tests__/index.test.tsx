@@ -42,6 +42,11 @@ const allDescElements = (screen: RenderAPI) => {
 };
 
 describe('Index (Onboarding) Screen', () => {
+  it('should match the snapshot', () => {
+    renderWithProviders();
+
+    expect(screen.toJSON()).toMatchSnapshot();
+  });
   it('renders first onboarding screen', async () => {
     renderWithProviders();
 
