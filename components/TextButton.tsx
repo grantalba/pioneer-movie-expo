@@ -9,6 +9,7 @@ type TextButtonProps = {
   contentContainerStyle?: any;
   onPress: (event: GestureResponderEvent) => void;
   disabled?: boolean;
+  accessibilityLabel?: string | undefined;
 };
 
 const TextButton = ({
@@ -17,6 +18,7 @@ const TextButton = ({
   contentContainerStyle,
   onPress,
   disabled = false,
+  accessibilityLabel = '',
 }: TextButtonProps): React.JSX.Element => {
   const styles = StyleSheet.create({
     touchableOpacityStyle: {
@@ -35,7 +37,12 @@ const TextButton = ({
   });
 
   return (
-    <TouchableOpacity disabled={disabled} style={styles.touchableOpacityStyle} onPress={onPress}>
+    <TouchableOpacity
+      disabled={disabled}
+      style={styles.touchableOpacityStyle}
+      onPress={onPress}
+      accessibilityLabel={accessibilityLabel}
+    >
       <Text style={styles.textLabelStyle}>{label}</Text>
     </TouchableOpacity>
   );
