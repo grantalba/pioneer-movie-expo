@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1746288334721" clover="3.2.0">
+  <project timestamp="1746288334721" name="All files">
+    <metrics statements="47" coveredstatements="44" conditionals="22" coveredconditionals="12" methods="10" coveredmethods="9" elements="79" coveredelements="65" complexity="0" loc="47" ncloc="47" packages="4" files="9" classes="9"/>
+    <package name="app">
+      <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="7" methods="6" coveredmethods="6"/>
+      <file name="index.tsx" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/app/index.tsx">
+        <metrics statements="25" coveredstatements="25" conditionals="8" coveredconditionals="7" methods="6" coveredmethods="6"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="36" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="44" count="4" type="stmt"/>
+        <line num="45" count="12" type="stmt"/>
+        <line num="52" count="4" type="stmt"/>
+        <line num="53" count="12" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="101" count="4" type="stmt"/>
+        <line num="115" count="15" type="stmt"/>
+        <line num="133" count="15" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.images">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="splash_1.png" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/assets/images/splash_1.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="splash_2.png" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/assets/images/splash_2.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+      <file name="splash_3.png" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/assets/images/splash_3.png">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="13" coveredstatements="10" conditionals="14" coveredconditionals="5" methods="4" coveredmethods="3"/>
+      <file name="Container.tsx" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/components/Container.tsx">
+        <metrics statements="9" coveredstatements="6" conditionals="5" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="65" count="4" type="stmt"/>
+      </file>
+      <file name="RenderWhen.tsx" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/components/RenderWhen.tsx">
+        <metrics statements="1" coveredstatements="1" conditionals="4" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="12" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="TextButton.tsx" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/components/TextButton.tsx">
+        <metrics statements="3" coveredstatements="3" conditionals="5" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="39" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="constants">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="constants.ts" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/constants/constants.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+      <file name="theme.ts" path="/Users/grant/Documents/Development/ReactNativeProjects/pioneer-movie-expo/constants/theme.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="163" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
