@@ -11,6 +11,7 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'no-unused-vars': ['error'],
+    'no-console': ['error', { allow: ['warn', 'error'] }],
     semi: ['error', 'always'],
     'import/order': [
       'error',
