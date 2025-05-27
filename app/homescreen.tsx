@@ -17,18 +17,20 @@ export default function Homescreen() {
     hasNextPage: hasMoreTopRated,
     // error: topRatedMoviesError, // TODO: HandleError
     isLoading: topRatedLoading,
-    refetch: fetchApi,
+    refetch: refetchTopRated,
   } = useQueryMovies({ endpoint: 'top_rated' });
 
   const {
     data: upcomingMovies,
     // error: upcomingMoviesError, // TODO: HandleError
     isLoading: upcomingLoading,
+    refetch: refetchUpcoming,
   } = useQueryMovies({ endpoint: 'upcoming' });
   const {
     data: popularMovies,
     // error: popularMoviesError, // TODO: HandleError
     isLoading: popularLoading,
+    refetch: refetchPopular,
   } = useQueryMovies({ endpoint: 'popular' });
 
   const handleLeftIconPress = () => {
@@ -39,8 +41,10 @@ export default function Homescreen() {
   };
 
   const onRefresh = React.useCallback(() => {
-    fetchApi();
-  }, [fetchApi]);
+    refetchTopRated();
+    refetchUpcoming();
+    refetchPopular();
+  }, [refetchTopRated, refetchUpcoming, refetchPopular]);
 
   return (
     <Container
